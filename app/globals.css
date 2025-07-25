@@ -1,18 +1,38 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-yellow: #e7d393;
-	--color-white-100: #efefef;
+	/* colors */
+	--color-white: hsl(0, 50%, 90%);
+	--color-black: hsl(240, 15%, 10);
+	--color-red: hsl(0, 51%, 60%);
+	--color-tangerine: hsl(20, 100%, 70%);
+	--color-orange: hsl(36, 100%, 50%);
+	--color-plum: hsl(300, 34%, 70%);
+	--color-indigo: hsl(240, 100%, 80%);
+
+	/* fonts */
 	--font-sans: 'Mona Sans', sans-serif;
 	--font-modern-negra: var(--font-modern-negra);
 	--font-dm-serif: var(--font-dm-serif);
 }
 
+:root {
+	--color-bg-grainient-back: var(--color-plum);
+	--color-bg-grainient-fore: var(--color-black);
+	--color-bg-zig-back: hsl(from var(--color-plum) h s l / 0.8);
+	--color-bg-zig-fore: hsl(from var(--color-orange) h s l / 0.8);
+	--color-bg-triangles-back: var(--color-indigo);
+	--color-bg-triangles-back-acc: hsl(from var(--color-indigo) h calc(s * 0.6) calc(l * 0.9) / 1);
+	--color-bg-triangles-fore: var(--color-red);
+	--color-bg-triangles-fore-acc: hsl(from var(--color-red) h calc(s * 0.8) calc(l * 0.9) / 1);
+}
+
 html,
 body {
 	width: 100%;
-	background-color: black;
-	color: white;
+	height: 100%;
+	background-color: var(--color-black);
+	color: var(--color-white);
 	scroll-behavior: smooth;
 	overflow-x: hidden;
 }
@@ -30,28 +50,111 @@ body {
 }
 
 @utility text-gradient {
-	background: linear-gradient(to bottom, #ffffff, #898989);
+	background: linear-gradient(
+		to bottom,
+		hsl(from var(--color-white) h s calc(l * 0.9)),
+		hsl(from var(--color-black) h s calc(l * 5))
+	);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
 }
 
 @utility radial-gradient {
-	background: radial-gradient(
-		circle at center,
-		#434343 0%,
-		#000 50%,
+	background: radial-gradient(circle at center, #434343 0%, #000 50%, transparent 100%);
+}
+
+@utility bg-grainient {
+	background-color: var(--color-bg-grainient-back);
+	background-image: linear-gradient(
+			20deg,
+			hsl(from var(--color-bg-grainient-fore) h s l / 1) 0%,
+			hsl(from var(--color-bg-grainient-fore) h s l / 0.6) 50%,
+			hsl(from var(--color-bg-grainient-fore) h s l / 1) 100%
+		),
+		url('/images/grain.svg');
+}
+
+@utility bg-zig {
+	background-color: var(--color-bg-zig-back);
+	background-image: linear-gradient(45deg, var(--color-bg-zig-fore) 25%, transparent 25%),
+		linear-gradient(135deg, var(--color-bg-zig-fore) 25%, transparent 25%),
+		linear-gradient(225deg, var(--color-bg-zig-fore) 25%, transparent 25%),
+		linear-gradient(315deg, var(--color-bg-zig-fore) 25%, transparent 25%);
+	background-size: 4rem 4rem;
+	background-position: 0 0, 2rem 0, 2rem 0, 0 0;
+}
+
+@utility bg-triangles {
+	background-color: var(--color-bg-triangles-back);
+	background-image: conic-gradient(
+		var(--color-bg-triangles-fore-acc) 1%,
+		var(--color-bg-triangles-fore) 1%,
+		var(--color-bg-triangles-fore) 15%,
+		var(--color-bg-triangles-back-acc) 15%,
+		var(--color-bg-triangles-back-acc) 16%,
+		transparent 16%,
+		transparent 20%,
+		var(--color-bg-triangles-fore-acc) 20%,
+		var(--color-bg-triangles-fore-acc) 21%,
+		var(--color-bg-triangles-fore) 21%,
+		var(--color-bg-triangles-fore) 25%,
+		var(--color-bg-triangles-back-acc) 25%,
+		var(--color-bg-triangles-back-acc) 26%,
+		transparent 26%,
+		transparent 35%,
+		var(--color-bg-triangles-fore-acc) 35%,
+		var(--color-bg-triangles-fore-acc) 36%,
+		var(--color-bg-triangles-fore) 36%,
+		var(--color-bg-triangles-fore) 42%,
+		var(--color-bg-triangles-back-acc) 42%,
+		var(--color-bg-triangles-back-acc) 43%,
+		transparent 43%,
+		transparent 50%,
+		var(--color-bg-triangles-fore-acc) 50%,
+		var(--color-bg-triangles-fore-acc) 51%,
+		var(--color-bg-triangles-fore) 51%,
+		var(--color-bg-triangles-fore) 62%,
+		var(--color-bg-triangles-back-acc) 62%,
+		var(--color-bg-triangles-back-acc) 63%,
+		transparent 63%,
+		transparent 69%,
+		var(--color-bg-triangles-fore-acc) 69%,
+		var(--color-bg-triangles-fore-acc) 70%,
+		var(--color-bg-triangles-fore) 70%,
+		var(--color-bg-triangles-fore) 78%,
+		var(--color-bg-triangles-back-acc) 78%,
+		var(--color-bg-triangles-back-acc) 79%,
+		transparent 79%,
+		transparent 88%,
+		var(--color-bg-triangles-fore-acc) 88%,
+		var(--color-bg-triangles-fore-acc) 89%,
+		var(--color-bg-triangles-fore) 89%,
+		var(--color-bg-triangles-fore) 95%,
+		var(--color-bg-triangles-back-acc) 95%,
+		var(--color-bg-triangles-back-acc) 96%,
+		transparent 96%,
 		transparent 100%
 	);
+}
+
+@utility title {
+	@apply text-6xl p-15 h-15 leading-5 md:text-[14rem] text-center font-modern-negra text-white text-shadow-lg shadow-sm bg-white/10 outline-10 outline-offset-[-1rem] outline-double outline-white/70 md:p-40 md:h-40 md:leading-15;
 }
 
 @layer components {
 	main {
 		@apply w-full overflow-x-hidden;
 	}
+	h1 {
+		@apply title;
+	}
+	section {
+		@apply absolute inset-0 size-full bg-black flex justify-center items-center;
+	}
 
-	nav {
-		@apply fixed z-50 w-full;
+	.tc-nav {
+		@apply fixed z-50 w-full bg-black/80 backdrop-blur-xl border-b-4 shadow-md;
 
 		div {
 			@apply flex md:flex-row flex-col md:justify-between items-center gap-5 py-5 lg:px-0 px-5 container mx-auto;
@@ -70,12 +173,20 @@ body {
 		}
 	}
 
-	.noisy {
-		@apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+	#hero {
+		@apply bg-grainient;
 	}
 
-	footer {
-		@apply w-full bg-black text-white-100 py-10;
+	#about {
+		@apply bg-zig;
+	}
+
+	#contact {
+		@apply bg-triangles;
+	}
+
+	.tc-footer {
+		@apply w-full bg-black text-white py-10;
 
 		div {
 			@apply container mx-auto flex flex-col md:flex-row justify-between items-center gap-5;
@@ -86,7 +197,7 @@ body {
 		}
 
 		a {
-			@apply text-yellow cursor-pointer;
+			@apply cursor-pointer;
 		}
 	}
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import Navbar from './components/Navbar';
 
 const dmSerif = localFont({
 	src: './fonts/DMSerifText.ttf',
@@ -30,6 +31,7 @@ export default function RootLayout({
 			<body
 				className={`${dmSerif.variable} ${modernNegra.variable} antialiased`}
 			>
+				<Navbar />
 				{children}
 			</body>
 		</html>
