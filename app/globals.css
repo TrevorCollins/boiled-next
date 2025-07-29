@@ -1,30 +1,111 @@
 @import 'tailwindcss';
 
+/* fonts */
 @theme {
-	/* colors */
-	--color-white: hsl(0, 50%, 90%);
-	--color-black: hsl(240, 15%, 10);
-	--color-red: hsl(0, 51%, 60%);
-	--color-tangerine: hsl(20, 100%, 70%);
-	--color-orange: hsl(36, 100%, 50%);
-	--color-plum: hsl(300, 34%, 70%);
-	--color-indigo: hsl(240, 100%, 80%);
+	/* LCARS color */
+	--A-hue: 21.5;
+	--B-hue: 47;
+	--C-hue: 65;
+	--D-hue: 282;
+	--E-hue: 326;
 
-	/* fonts */
+	/* Lightness values */
+	--50-l: 99%;
+	--100-l: 90%;
+	--200-l: 80%;
+	--300-l: 69%;
+	--400-l: 61%;
+	--500-l: 45%;
+	--600-l: 31%;
+	--700-l: 20%;
+	--800-l: 9%;
+	--900-l: 5%;
+
+	/* Chroma values */
+	--50-s: 0.05;
+	--100-s: 0.1;
+	--200-s: 0.2;
+	--300-s: 0.25;
+	--400-s: 0.3;
+	--500-s: 0.23;
+	--600-s: 0.2;
+	--700-s: 0.2;
+	--800-s: 0.18;
+	--900-s: 0.11;
+
+	--color-A-50: oklch(var(--50-l) var(--50-s) var(--A-hue));
+	--color-A-100: oklch(var(--100-l) var(--100-s) var(--A-hue));
+	--color-A-200: oklch(var(--200-l) var(--200-s) var(--A-hue));
+	--color-A-300: oklch(var(--300-l) var(--300-s) var(--A-hue));
+	--color-A-400: oklch(var(--400-l) var(--400-s) var(--A-hue));
+	--color-A-500: oklch(var(--500-l) var(--500-s) var(--A-hue));
+	--color-A-600: oklch(var(--600-l) var(--600-s) var(--A-hue));
+	--color-A-700: oklch(var(--700-l) var(--700-s) var(--A-hue));
+	--color-A-800: oklch(var(--800-l) var(--800-s) var(--A-hue));
+	--color-A-900: oklch(var(--900-l) var(--900-s) var(--A-hue));
+	--color-B-50: oklch(var(--50-l) var(--50-s) var(--B-hue));
+	--color-B-100: oklch(var(--100-l) var(--100-s) var(--B-hue));
+	--color-B-200: oklch(var(--200-l) var(--200-s) var(--B-hue));
+	--color-B-300: oklch(var(--300-l) var(--300-s) var(--B-hue));
+	--color-B-400: oklch(var(--400-l) var(--400-s) var(--B-hue));
+	--color-B-500: oklch(var(--500-l) var(--500-s) var(--B-hue));
+	--color-B-600: oklch(var(--600-l) var(--600-s) var(--B-hue));
+	--color-B-700: oklch(var(--700-l) var(--700-s) var(--B-hue));
+	--color-B-800: oklch(var(--800-l) var(--800-s) var(--B-hue));
+	--color-B-900: oklch(var(--900-l) var(--900-s) var(--B-hue));
+	--color-C-50: oklch(var(--50-l) var(--50-s) var(--C-hue));
+	--color-C-100: oklch(var(--100-l) var(--100-s) var(--C-hue));
+	--color-C-200: oklch(var(--200-l) var(--200-s) var(--C-hue));
+	--color-C-300: oklch(var(--300-l) var(--300-s) var(--C-hue));
+	--color-C-400: oklch(var(--400-l) var(--400-s) var(--C-hue));
+	--color-C-500: oklch(var(--500-l) var(--500-s) var(--C-hue));
+	--color-C-600: oklch(var(--600-l) var(--600-s) var(--C-hue));
+	--color-C-700: oklch(var(--700-l) var(--700-s) var(--C-hue));
+	--color-C-800: oklch(var(--800-l) var(--800-s) var(--C-hue));
+	--color-C-900: oklch(var(--900-l) var(--900-s) var(--C-hue));
+	--color-D-50: oklch(var(--50-l) var(--50-s) var(--D-hue));
+	--color-D-100: oklch(var(--100-l) var(--100-s) var(--D-hue));
+	--color-D-200: oklch(var(--200-l) var(--200-s) var(--D-hue));
+	--color-D-300: oklch(var(--300-l) var(--300-s) var(--D-hue));
+	--color-D-400: oklch(var(--400-l) var(--400-s) var(--D-hue));
+	--color-D-500: oklch(var(--500-l) var(--500-s) var(--D-hue));
+	--color-D-600: oklch(var(--600-l) var(--600-s) var(--D-hue));
+	--color-D-700: oklch(var(--700-l) var(--700-s) var(--D-hue));
+	--color-D-800: oklch(var(--800-l) var(--800-s) var(--D-hue));
+	--color-D-900: oklch(var(--900-l) var(--900-s) var(--D-hue));
+	--color-E-50: oklch(var(--50-l) var(--50-s) var(--E-hue));
+	--color-E-100: oklch(var(--100-l) var(--100-s) var(--E-hue));
+	--color-E-200: oklch(var(--200-l) var(--200-s) var(--E-hue));
+	--color-E-300: oklch(var(--300-l) var(--300-s) var(--E-hue));
+	--color-E-400: oklch(var(--400-l) var(--400-s) var(--E-hue));
+	--color-E-500: oklch(var(--500-l) var(--500-s) var(--E-hue));
+	--color-E-600: oklch(var(--600-l) var(--600-s) var(--E-hue));
+	--color-E-700: oklch(var(--700-l) var(--700-s) var(--E-hue));
+	--color-E-800: oklch(var(--800-l) var(--800-s) var(--E-hue));
+	--color-E-900: oklch(var(--900-l) var(--900-s) var(--E-hue));
+
+	--color-A: var(--color-A-200);
+	--color-B: var(--color-B-200);
+	--color-C: var(--color-C-300);
+	--color-D: var(--color-D-300);
+	--color-E: var(--color-E-300);
+	--color-white: var(--color-A-50);
+	--color-black: var(--color-A-900);
+
 	--font-sans: 'Mona Sans', sans-serif;
 	--font-modern-negra: var(--font-modern-negra);
 	--font-dm-serif: var(--font-dm-serif);
 }
 
 :root {
-	--color-bg-grainient-back: var(--color-plum);
+	--color-bg-grainient-back: var(--color-E);
 	--color-bg-grainient-fore: var(--color-black);
-	--color-bg-zig-back: hsl(from var(--color-plum) h s l / 0.8);
-	--color-bg-zig-fore: hsl(from var(--color-orange) h s l / 0.8);
-	--color-bg-triangles-back: var(--color-indigo);
-	--color-bg-triangles-back-acc: hsl(from var(--color-indigo) h calc(s * 0.6) calc(l * 0.9) / 1);
-	--color-bg-triangles-fore: var(--color-red);
-	--color-bg-triangles-fore-acc: hsl(from var(--color-red) h calc(s * 0.8) calc(l * 0.9) / 1);
+	--color-bg-zig-back: --alpha(var(--color-E) / 80%);
+	--color-bg-zig-fore: --alpha(var(--color-C) / 80%);
+	--color-bg-triangles-back: var(--color-D);
+	--color-bg-triangles-back-acc: oklch(from var(--color-D) calc(l * 0.92) calc(c * 0.95) h);
+	--color-bg-triangles-fore: var(--color-A);
+	--color-bg-triangles-fore-acc: oklch(from var(--color-A) calc(l * 0.92) calc(c * 0.95) h);
 }
 
 html,
@@ -49,28 +130,13 @@ body {
 	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
-@utility text-gradient {
-	background: linear-gradient(
-		to bottom,
-		hsl(from var(--color-white) h s calc(l * 0.9)),
-		hsl(from var(--color-black) h s calc(l * 5))
-	);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-}
-
-@utility radial-gradient {
-	background: radial-gradient(circle at center, #434343 0%, #000 50%, transparent 100%);
-}
-
 @utility bg-grainient {
 	background-color: var(--color-bg-grainient-back);
 	background-image: linear-gradient(
 			20deg,
-			hsl(from var(--color-bg-grainient-fore) h s l / 1) 0%,
-			hsl(from var(--color-bg-grainient-fore) h s l / 0.6) 50%,
-			hsl(from var(--color-bg-grainient-fore) h s l / 1) 100%
+			var(--color-bg-grainient-fore) 0%,
+			--alpha(var(--color-bg-grainient-fore) / 0.6) 50%,
+			var(--color-bg-grainient-fore) 100%
 		),
 		url('/images/grain.svg');
 }
@@ -183,6 +249,24 @@ body {
 
 	#contact {
 		@apply bg-triangles;
+	}
+
+	#colors {
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+			li {
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+				padding: 0.5rem;
+				width: 10rem;
+			}
+		}
 	}
 
 	.tc-footer {

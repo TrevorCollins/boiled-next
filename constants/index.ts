@@ -11,6 +11,10 @@ const navItems = [
 		label: 'Contact',
 		href: '/contact',
 	},
+	{
+		label: 'Colors',
+		href: '/colors',
+	},
 ];
 
 const footerLinks = [
